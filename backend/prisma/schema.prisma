@@ -1,0 +1,34 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String   @id @default(uuid())
+  nombre        String
+  correo        String   @unique
+  contrasena    String
+  fecha_creacion DateTime @default(now())
+  tasks         Task[]
+}
+
+model Task {
+  id               String   @id @default(uuid())
+  usuarioId        String
+  usuario          User     @relation(fields: [usuarioId], references: [id])
+  titulo           String
+  descripcion      String?
+  estado           String   @default("pendiente")
+  prioridad        String   @default("media")
+  fecha_limite     DateTime?
+  fecha_creacion   DateTime @default(now())
+  fecha_actualizacion DateTime @updatedAt
+
+  @@index([usuarioId])
+  @@map("tasks")
+}
