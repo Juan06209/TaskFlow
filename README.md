@@ -17,9 +17,4 @@ Facilitar la organización personal mediante una interfaz intuitiva que permita 
 - [DATABASE_SCHEMA.sql](DATABASE_SCHEMA.sql): esquema SQL inicial para PostgreSQL.
 - [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md): propuesta de estructura del repositorio.
 
-## Siguientes pasos sugeridos
-1. Confirmar requerimientos y criterios de aceptación.
-2. Scaffold del backend (endpoints y modelos).
-3. Scaffold del frontend (componentes y rutas).
-4. Añadir Dockerfile y docker-compose para desarrollo.
 
